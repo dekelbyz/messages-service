@@ -1,12 +1,17 @@
 import { Router, Request, Response, NextFunction } from "express";
 import * as controller from "./messages.controller";
-import { validateIncomingMessageBySchema } from "./messages.schema";
+import { sendMessageSchema } from "./messages.schema";
 export const messagesRouter = Router();
 
-/* a middleware function that takes places every time the client
-  requests to send a message. */
+/** a middleware function that takes places
+ * every time the client requests to send a message. */
 const validateMessage = (req: Request, res: Response, next: NextFunction) => {
-  validateIncomingMessageBySchema(req.body);
+  const validationResult = sendMessageSchema.validate(req.body);
+  if (validationResult.error) {
+    res.status(400).send("Message request is not valid.");
+    return;
+  }
+
   next();
 };
 
