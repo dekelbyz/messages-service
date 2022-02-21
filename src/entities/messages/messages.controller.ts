@@ -25,7 +25,5 @@ export function getMessages(recipient: string) {
       toLowerCaseRemoveSpaces(message.recipient) == searchTerm ||
       toLowerCaseRemoveSpaces(message.sender) == searchTerm
   );
-
-  if (result.length < 1) throw 404;
   return result;
 }
