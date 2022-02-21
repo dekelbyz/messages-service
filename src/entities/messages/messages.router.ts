@@ -11,7 +11,6 @@ const validateMessage = (req: Request, res: Response, next: NextFunction) => {
     res.status(400).send("Message request is not valid.");
     return;
   }
-
   next();
 };
 
@@ -19,6 +18,10 @@ messagesRouter.post("/send", validateMessage, (req: Request, res: Response) => {
   res.send(controller.sendMessage(req.body));
 });
 
-messagesRouter.get("/get/:recipient", (req: Request, res: Response) => {
-  res.send(controller.getMessages(req.params.recipient));
+messagesRouter.get("/", (req: Request, res: Response) => {
+  if (typeof req.query.recipient === "string") {
+    res.send(controller.getMessages(req.query.recipient));
+  } else {
+    res.status(400).send("Invalid recipient query.");
+  }
 });
