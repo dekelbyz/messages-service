@@ -1,0 +1,22 @@
+services:
+  message_service:
+    build: .
+    ports:
+      - "2000:2000"
+
+    environment:
+      - MONGO_URL=mongodb://db
+      - AUTH_SERVICE=http://auth_service:3000
+
+  auth_service:
+    build: https://github.com/dekelbyz/auth-service.git
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://db
+      - JWT_SECRET=NERIYAKING
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
