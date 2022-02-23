@@ -5,8 +5,6 @@ import axios from "axios";
  * which checks wether user is authorized to go on.
  */
 export async function validate(token: string) {
-  console.log(token);
-
   try {
     const authRequest = await axios({
       method: "get",

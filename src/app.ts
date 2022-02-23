@@ -7,8 +7,6 @@ config();
 
 const app = express();
 
-console.log("App Started.");
-
 /* middleware functions. */
 app.use(express.json());
 
