@@ -1,8 +1,9 @@
-import type { ReceiveMessages, SendMessageRequest } from "./messages.model";
+import type { SendMessageDto } from "./dto/send-message.dto";
+import type { GetMessagesDto } from "./dto/get-messages.dto";
 import { MessageModel } from "./messages.model";
 
 export async function sendMessage(
-  messageRequest: SendMessageRequest,
+  messageRequest: SendMessageDto,
   username: string
 ) {
   const message = {
@@ -18,7 +19,7 @@ export async function sendMessage(
 
 export async function getAllMessages(
   username: string
-): Promise<ReceiveMessages> {
+): Promise<GetMessagesDto> {
   const messages = await MessageModel.find({ recipient: username });
   return {
     recipient: username,
