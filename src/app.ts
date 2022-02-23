@@ -6,8 +6,6 @@ import { config } from "dotenv";
 config();
 
 const app = express();
-
-/* middleware functions. */
 app.use(express.json());
 
 /** logs our execution time along side endpoints and method type. */
@@ -20,7 +18,7 @@ app.use((req, res, next) => {
 /**
  * with every request coming in we must make sure that
  * the user is allowed to gain access to the data
- * he's asking.
+ * he's asking to read/write.
  * we do that by sending his JasonWebToken to our
  * AUTHENTICATION MICROSERVICE
  */
