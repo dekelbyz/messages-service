@@ -1,11 +1,11 @@
 import type { SendMessageDto } from "./dto/send-message.dto";
 import type { GetMessagesDto } from "./dto/get-messages.dto";
-import { MessageModel } from "./messages.model";
+import { Message, MessageModel } from "./messages.model";
 
 export async function sendMessage(
   messageRequest: SendMessageDto,
   username: string
-) {
+): Promise<Message> {
   const message = {
     ...messageRequest,
     date: new Date(),

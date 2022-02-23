@@ -2,28 +2,35 @@ import { Request, Response, NextFunction } from "express";
 import { sendMessageSchema } from "./messages.model";
 import { checkIfUserExists } from "../../common/validate";
 
-/**  Checks wether request details are valid and recipient exists. */
+/**
+ *   Validates:
+ *
+ * * Request body stractured like we expect (Joi Schema).
+ *
+ * * User is not sending a message to himself.
+ *
+ * * Recipient exists.
+ */
 export const validateIncomingMessage = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  /**
-   * Checks wether the request details are valid with our Joi Schema.
-   */
-  const validationResult = sendMessageSchema.validate(req.body);
-
-  if (validationResult.error) {
-    res.status(400).send(validationResult.error.message);
-    return;
+  if (req.body.recipient === req.user.username) {
+    return res.status(400).send("You can not send messages to yourself.");
   }
-  /**
-   * Making sure that the recipient indeed exists (using our auth micro-service).
-   */
+
+  const validationResult = sendMessageSchema.validate(req.body);
+  if (validationResult.error) {
+    return res.status(400).send(validationResult.error.message);
+  }
+
+  /* using our auth micro-service .*/
   const userExists = await checkIfUserExists(req.body.recipient);
   if (!userExists) {
-    res.status(400).send(`recipient '${req.body.recipient}' does not exist.`);
-    return;
+    return res
+      .status(400)
+      .send(`recipient '${req.body.recipient}' does not exist.`);
   }
   next();
 };
