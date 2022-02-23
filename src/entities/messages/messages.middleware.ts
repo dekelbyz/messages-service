@@ -12,8 +12,9 @@ export const validateIncomingMessage = async (
    * Checks wether the request details are valid with our Joi Schema.
    */
   const validationResult = sendMessageSchema.validate(req.body);
+
   if (validationResult.error) {
-    res.status(400).send("Message request is not valid.");
+    res.status(400).send(validationResult.error.message);
     return;
   }
   /**
@@ -21,7 +22,7 @@ export const validateIncomingMessage = async (
    */
   const userExists = await checkIfUserExists(req.body.recipient);
   if (!userExists) {
-    res.status(400).send(`recipient '${req.body.recipient}' does not exists`);
+    res.status(400).send(`recipient '${req.body.recipient}' does not exist.`);
     return;
   }
   next();

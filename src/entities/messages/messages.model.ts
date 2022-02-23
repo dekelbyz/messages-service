@@ -38,7 +38,7 @@ We use Joi Schemas to represent the stracture of the data that we're expecting
 to receive from the client. 
  */
 export const sendMessageSchema = Joi.object({
-  recipient: Joi.string().alphanum().min(3).max(20).required(),
+  recipient: Joi.string().min(3).max(20).required(),
   content: Joi.string().min(1).required(),
 });
 
