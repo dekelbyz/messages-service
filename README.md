@@ -36,7 +36,7 @@ Assuming you have `Docker` installed on your computer, you will be able to <br>
 load this project along side other micro-services and mongoDB that belong to this project easily. <br>
 
 <span><b>Learn more here:
-<a href="https://docs.docker.com/get-started/" target="blank"><img src="https://logos-world.net/wp-content/uploads/2021/02/Docker-Logo-2013-2015.png" width="200" alt="Docker Logo" /></a></b></span>
+<a href="https://docs.docker.com/get-started/" target="blank"><img src="https://logos-world.net/wp-content/uploads/2021/02/Docker-Logo-2013-2015.png" width="50" alt="Docker Logo" /></a></b></span>
 
 ## STEPS
 
