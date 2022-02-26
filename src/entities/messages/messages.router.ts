@@ -11,6 +11,6 @@ messagesRouter.post(
   }
 );
 
-messagesRouter.get("/all", async (req: Request, res: Response) => {
+messagesRouter.get("/", async (req: Request, res: Response) => {
   res.send(await controller.getAllMessages(req.user.username));
 });

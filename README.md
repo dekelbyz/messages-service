@@ -92,7 +92,7 @@ axios.post('http://localhost:2000/messages/send',
 example:
 
 ```bash
-axios.post('http://localhost:3000/messages/all',
+axios.post('http://localhost:3000/messages',
   headers:{
   authorization: access_token
   })
