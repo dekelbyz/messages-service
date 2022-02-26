@@ -38,7 +38,7 @@ load this project along side other micro-services and mongoDB that belong to thi
 <span><b>Learn more here:
 <a href="https://docs.docker.com/get-started/" target="blank"><img src="https://logos-world.net/wp-content/uploads/2021/02/Docker-Logo-2013-2015.png" width="50" alt="Docker Logo" /></a></b></span>
 
-## STEPS
+## Steps
 
 First, you will need to `REGISTER` and `LOGIN` the app. <br> <br>
 The way of doing that is by following the `auth-service` I have developed for this project. <br>
@@ -51,7 +51,7 @@ example path: http://localhost:2000/ <br><br>
 
 examples will be provided with the `axios` syntax.
 
-## SEND A MESSAGE
+## Send a message
 
 **POST**
 
@@ -81,7 +81,7 @@ axios.post('http://localhost:2000/messages/send',
   })
 ```
 
-## GET MESSAGES
+## Get messages
 
 **GET**
 
