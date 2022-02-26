@@ -16,7 +16,7 @@ part of a home assignment provided to me by Tikal</p>
   <div style="display: flex;">
     <a href="#">
     <div style="display: flex;">
-        <img href="localhost" src="https://camo.githubusercontent.com/0d358238ba8c67946e6555aad926b947e1a5048f/68747470733a2f2f6e6573746a732e636f6d2f696d672f6c6f676f5f746578742e737667" height="94"/> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" height="94"/> 
       <img src="https://i.ibb.co/tqHYP3q/pngwing-com.png" height="130"/> 
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png"  height="94"/> 
   </div>  
