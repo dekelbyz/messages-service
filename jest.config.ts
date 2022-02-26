@@ -6,5 +6,10 @@ const config: Config.InitialOptions = {
     "^.+\\.jsx?$": "babel-jest", // Adding this line solved the issue
     "^.+\\.tsx?$": "ts-jest",
   },
+  setupFilesAfterEnv: [
+    // NOT setupFiles
+    "./tests/defaultTimeout.js",
+  ],
+  setupFiles: ["dotenv/config"],
 };
 export default config;
