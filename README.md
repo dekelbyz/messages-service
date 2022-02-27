@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://tkctl.tikalk.com/images/we-full-stack.png" width="320" alt="Tikal Logo" /></a>
+  <a href="https://www.tikalk.com/" target="blank"><img src="https://tkctl.tikalk.com/images/we-full-stack.png" width="320" alt="Tikal Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -49,11 +49,13 @@ you will need to provide your `access_token` with every HTTP request you make fo
 
 example path: http://localhost:2000/ <br><br>
 
-examples will be provided with the `axios` syntax.
-
 ## Send a message
 
 **POST**
+
+<b>Endpoint: messages/send</b>
+
+<b>Parameters:</b>
 
 | Type        | Name                            | Description                                                  | Schema |
 | ----------- | ------------------------------- | ------------------------------------------------------------ | ------ |
@@ -71,19 +73,35 @@ examples will be provided with the `axios` syntax.
 **EXAMPLE**
 
 ```bash
-axios.post('http://localhost:2000/messages/send',
-  params: {
-  recipient: "ElonMusk",
-  content:" Hey Elon! Seems like Dekel is really passionate about backend development."
-  },
-  headers: {
-  authorization: access_token
-  })
+const myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer access_token");
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "recipient": "Dekel asdasd",
+  "content": "you are one hell of a programmer!"
+});
+
+const requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:2000/messages/send", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 ```
+
+<br><br><br>
 
 ## Get messages
 
 **GET**
+
+<b>Endpoint: messages</b>
 
 | Type        | Name                            | Description                                                  | Schema |
 | ----------- | ------------------------------- | ------------------------------------------------------------ | ------ |
@@ -92,10 +110,19 @@ axios.post('http://localhost:2000/messages/send',
 example:
 
 ```bash
-axios.post('http://localhost:3000/messages',
-  headers:{
-  authorization: access_token
-  })
+const myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer access_token");
+
+const requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("localhost:2000/messages/all", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 ```
 
 ## What's now?
