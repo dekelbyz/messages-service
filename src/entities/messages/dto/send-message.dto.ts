@@ -4,5 +4,3 @@ export interface SendMessageDto {
   recipient: string;
   content: string;
 }
-
-// TODO: make it a class.
