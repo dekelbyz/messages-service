@@ -103,6 +103,8 @@ fetch("http://localhost:2000/messages/send", requestOptions)
 
 <b>Endpoint: messages</b>
 
+<b>Parameters:</b>
+
 | Type        | Name                            | Description                                                  | Schema |
 | ----------- | ------------------------------- | ------------------------------------------------------------ | ------ |
 | **Headers** | **access_token** <br>_required_ | The access_token generated for you while logging in the app. | string |
