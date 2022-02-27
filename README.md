@@ -45,7 +45,7 @@ The way of doing that is by following the `auth-service` I have developed for th
 learn more about it: https://github.com/dekelbyz/auth-service. <br><br>
 With that been done, you will gain an `access_token` variable. <br><br>
 To activate the `messages-service` and be able to write messages to your friends, <br>
-you will need to provide your `access_token` which every HTTP request you make for the `messages-service`.
+you will need to provide your `access_token` with every HTTP request you make for the `messages-service`.
 
 example path: http://localhost:2000/ <br><br>
 
