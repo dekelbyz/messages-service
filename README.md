@@ -78,8 +78,8 @@ myHeaders.append("Authorization", "Bearer access_token");
 myHeaders.append("Content-Type", "application/json");
 
 const raw = JSON.stringify({
-  "recipient": "Dekel asdasd",
-  "content": "you are one hell of a programmer!"
+  "recipient": "RyanDahl",
+  "content": "Seems like dekel is really passionate about backend development!"
 });
 
 const requestOptions = {
