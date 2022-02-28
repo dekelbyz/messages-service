@@ -19,11 +19,14 @@ app.use((req, res, next) => {
  * with every request coming in we must make sure that
  * the user is allowed to gain access to the data
  * he's asking to read/write.
- * we do that by sending his JasonWebToken to our
+ * we do that by sending his JsonWebToken to our
  * AUTHENTICATION MICROSERVICE
  */
 app.use(async (req, res, next) => {
-  const validUser = await validate(req.headers.authorization!);
+  if (!req.headers.authorization) {
+    return res.status(400).send("Please provide an Authorization token.");
+  }
+  const validUser = await validate(req.headers.authorization);
   if (validUser.error) {
     return res.status(validUser.error.code).send(validUser.error.message);
   }
