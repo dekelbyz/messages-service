@@ -9,7 +9,7 @@ services:
       - AUTH_SERVICE=http://auth_service:3000
 
   auth_service:
-    build: https://github.com/dekelbyz/auth-service.git
+    build: https://github.com/dekelbyz/auth-service.git#main
     ports:
       - "3000:3000"
     environment:
