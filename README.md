@@ -121,7 +121,7 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-fetch("localhost:2000/messages/all", requestOptions)
+fetch("localhost:2000/messages", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
