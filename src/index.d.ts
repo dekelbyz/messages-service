@@ -4,6 +4,9 @@
 */
 declare namespace Express {
   interface Request {
-    user?: any;
+    user?: {
+      username: string;
+      password: string;
+    };
   }
 }

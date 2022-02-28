@@ -5,7 +5,7 @@ import { validate } from "./common/validate";
 import { config } from "dotenv";
 config();
 
-const app = express();
+export const app = express();
 app.use(express.json());
 
 /** logs our execution time along side endpoints and method type. */
@@ -36,7 +36,7 @@ app.use(async (req, res, next) => {
 
 app.use(applicationRoutes);
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.NODE_ENV == "test" ? 0 : process.env.PORT || 2000;
 dbConnect().then(() => {
   app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}...`);

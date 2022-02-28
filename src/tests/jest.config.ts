@@ -1,4 +1,5 @@
 import type { Config } from "@jest/types";
+
 // Sync object
 const config: Config.InitialOptions = {
   verbose: true,
@@ -8,8 +9,10 @@ const config: Config.InitialOptions = {
   },
   setupFilesAfterEnv: [
     // NOT setupFiles
-    "./tests/defaultTimeout.js",
+    "./defaultTimeout.js",
   ],
   setupFiles: ["dotenv/config"],
+
+  globalSetup: "./jest.setup.ts",
 };
 export default config;

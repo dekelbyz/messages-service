@@ -7,10 +7,10 @@ messagesRouter.post(
   "/send",
   validateIncomingMessage,
   async (req: Request, res: Response) => {
-    res.send(await controller.sendMessage(req.body, req.user.username));
+    res.send(await controller.sendMessage(req.body, req.user!.username));
   }
 );
 
 messagesRouter.get("/", async (req: Request, res: Response) => {
-  res.send(await controller.getAllMessages(req.user.username));
+  res.send(await controller.getAllMessages(req.user!.username));
 });

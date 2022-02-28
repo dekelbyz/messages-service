@@ -16,7 +16,7 @@ export const validateIncomingMessage = async (
   res: Response,
   next: NextFunction
 ) => {
-  if (req.body.recipient === req.user.username) {
+  if (req.body.recipient === req.user?.username) {
     return res.status(400).send("You can not send messages to yourself.");
   }
 
