@@ -14,7 +14,7 @@ services:
       - "3000:3000"
     environment:
       - MONGO_URL=mongodb://db
-      - JWT_SECRET=NERIYAKING
+      - JWT_SECRET=VERYSECRETTOKEN
 
   db:
     image: mongo
