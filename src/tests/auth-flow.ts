@@ -2,7 +2,7 @@ import axios from "axios";
 import { checkIfUserExists } from "../common/validate";
 
 /*
- * In order to run integration tests, we will be have
+ * In order to run integration tests, we will have
  * to use EXISTING users.
  *
  * This file is in charge of creating test users
