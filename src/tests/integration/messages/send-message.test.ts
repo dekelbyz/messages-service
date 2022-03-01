@@ -96,7 +96,7 @@ describe("/POST messages/send (ERRORS)", function () {
   it("Sends a message an unvalid access token", async function () {
     const messageBody: SendMessageDto = {
       recipient: RECIPIENT,
-      content: "I am sending invalid message request :(",
+      content: invalidRequestString,
     };
 
     await request(app)
