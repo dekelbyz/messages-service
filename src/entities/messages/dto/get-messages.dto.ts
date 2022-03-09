@@ -6,5 +6,3 @@ export interface GetMessagesDto {
   recipient: string;
   messages: Message[];
 }
-
-// todo: make it a class
